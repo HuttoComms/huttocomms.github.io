@@ -1,0 +1,93 @@
+.property-rate-chart h2,
+.property-rate-chart h3,
+.property-rate-chart table {
+    position: relative;
+    z-index: 10;
+}
+
+.property-rate-chart table {
+    background-color: #eee;
+    font-size: 14px;
+}
+
+.property-rate-chart #allTaxesChart {
+    min-height: 500px;
+    margin-bottom: 5px;
+    margin-top: -20px;
+    position: relative;
+    width: 100%;
+}
+
+.property-rate-chart #monthlyChart {
+    min-height: 600px;
+    margin-bottom: 40px;
+    margin-top: -75px;
+    position: relative;
+    width: 100%;
+}
+
+.property-rate-chart .form-container {
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.property-rate-chart .well {
+    background-color: #333943;
+    margin-bottom: 30px;
+}
+
+.property-rate-chart .well input {
+    vertical-align: middle;
+}
+
+.property-rate-chart label {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 7px;
+    text-align: center;
+}
+
+.property-rate-chart .property-value-lookup {
+    float: none !important;
+    text-align: center;
+}
+
+.property-rate-chart .estimated-taxes {
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+    z-index: 10;
+}
+
+.property-rate-chart .estimated-taxes h2 {
+    margin-bottom: 4px;
+}
+
+.property-rate-chart .estimated-taxes p {
+    margin-bottom: 0;
+}
+
+.property-rate-chart hr {
+    margin: 10px auto;
+    width: 75%;
+}
+
+@media (min-width: 750px) {
+    .property-rate-chart label {
+        display: inline-block;
+        margin-bottom: 0;
+        text-align: left;
+    }
+}
+
+@media (min-width: 930px) {
+    .property-rate-chart .form-container {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+    .property-rate-chart .property-value-lookup {
+        float: right !important;
+    }
+}
