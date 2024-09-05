@@ -5,6 +5,10 @@
     <!-- Based on code developed by the City of Round Rock -->
     <!-- 2024-09-05 Scott Wyatt - Revised page design for City of Hutto -->
     <!--   Standardized variable names, added more to accommodate Hutto tax items -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Property Tax Estimator for the City of Hutto, Texas.">
+    <meta name="keywords" content="Hutto, taxes, property">
+    <meta name="author" content="City of Hutto">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
@@ -99,6 +103,7 @@
 
 
  <h3>Portion of Tax Bill by Department</h3>
+ 	  <!-- Would rather cycle through an array in v2 -->
       <table class="table table-striped table-condensed">
         <tr>
           <th>Department/Budget Item</th>
@@ -226,15 +231,17 @@
         </tr>
       </table>  
 
-    </div> <!-- end property-chart -->
-    </div> <!-- end of container -->
-    
+    </div> <!-- End property-chart -->
+    </div> <!-- End of container -->
+ 
+	<!-- These JavaScript files are essential, and in this order -->    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="js/accounting.js"></script>
     <script src="js/calculator.js"></script>
 
   </body>
+  <!-- The code here only works after the body -->
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.1/iframeResizer.contentWindow.min.js"
     integrity="sha256-pcBCSNXBj1IVeOk2N+lpQd0JBrC3E0u9BXNKG33l5ZA="
