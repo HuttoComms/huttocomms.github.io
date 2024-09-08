@@ -360,15 +360,16 @@ taxRateCity = taxRateChosen
   formatter.format(data, 1);
   formatter.format(taxData, 1);
 
-  chart = new google.visualization.ColumnChart(
-    document.getElementById("monthlyChart")
-  );
-  chart.draw(data, options);
-
-  chart2 = new google.visualization.BarChart(
+  chartAll = new google.visualization.BarChart(
     document.getElementById("allTaxesChart")
   );
-  chart2.draw(taxData, options2);
+  chartAll.draw(taxData, options2);
+
+  chartMonthly = new google.visualization.ColumnChart(
+    document.getElementById("monthlyChart")
+  );
+  chartMonthly.draw(data, options);
+
 }
 
 $(window).resize(function () {
