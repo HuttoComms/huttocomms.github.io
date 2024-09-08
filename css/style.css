@@ -27,12 +27,12 @@ h1, h2, {
 	text-align: center;
 }
 
-well {
+userForm {
     background-color: #333943;
     margin-bottom: 30px;
 }
 
-well input {
+userForm input {
     vertical-align: middle;
 }
 
