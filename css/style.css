@@ -10,10 +10,6 @@
         margin-bottom: 0;
         text-align: left;
     }
-    well p {
-    	text-align: center;
-    }
-	
 }
 
 @media (min-width: 930px) {
