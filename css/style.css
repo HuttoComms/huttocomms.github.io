@@ -3,24 +3,6 @@
 /* 2024-09-06 Scott Wyatt  */
 /*   Adding color codes, general formatting */
 
-/* Responsive resizing and repositioning */
-@media (min-width: 750px) {
-    .property-rate-chart label {
-        display: inline-block;
-        margin-bottom: 0;
-        text-align: left;
-    }
-}
-
-@media (min-width: 930px) {
-    .property-rate-chart .form-container {
-        display: inline-block;
-        margin-bottom: 0;
-    }
-    .property-rate-chart .property-value-lookup {
-        float: right !important;
-    }
-}
 
 /* Typography, General */
 h1, h2, {
@@ -103,3 +85,25 @@ userForm {
 userForm input {
     vertical-align: middle;
 }
+
+
+
+/* Responsive resizing and repositioning */
+@media (min-width: 750px) {
+    .property-rate-chart label {
+        display: inline-block;
+        margin-bottom: 0;
+        text-align: left;
+    }
+}
+
+@media (min-width: 930px) {
+    .property-rate-chart .form-container {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+    .property-rate-chart .property-value-lookup {
+        float: right !important;
+    }
+}
+
