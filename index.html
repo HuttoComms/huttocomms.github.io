@@ -16,11 +16,13 @@
 	<h1 style="text-align: center">City of Hutto Property Tax Calculator</h1>
 	<p style="text-align: center">We provide this property tax calculator for informational purposes only. Calculations
 	   offer <strong><em>estimates of property taxes</em></strong>, not official values.</p>
-    <div class="container">
+	<!-- Entire page is within id=pageContainer -->
+    <div id="pageContainer">
 
+    <!-- CSS controls for charts apply to class property-rate-chart -->
     <div class="property-rate-chart">
 
-      <div class="well">
+      <div id="userForm">
         <form class="form-inline" role="form" onsubmit="rateCalculator(); return false;">
           <span class="form-container">
             <label>Home value: $</label>
@@ -39,6 +41,7 @@
           </span>
           <div class="pull-right property-value-lookup"><a class="btn btn-default" target="_blank" href="http://search.wcad.org">Property value lookup</a></div>
         </form>
+      <!-- End of userForm -->  
       </div>
 
       <h2>Property Taxes by Entity</h2>
@@ -232,7 +235,7 @@
       </table>  
 
     </div> <!-- End property-chart -->
-    </div> <!-- End of container -->
+    </div> <!-- End of pageContainer -->
  
 	<!-- These JavaScript files are essential, and in this order -->    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
