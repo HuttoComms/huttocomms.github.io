@@ -76,16 +76,15 @@ h1, h2, {
     width: 75%;
 }
 
-userForm {
-    background-color: #333943;
+pageContainer .userForm {
+    background-color: #000;
     color: #FFF;
     margin-bottom: 30px;
 }
 
-userForm input {
+pageContainer .userForm input {
     vertical-align: middle;
 }
-
 
 
 /* Responsive resizing and repositioning */
