@@ -10,14 +10,22 @@
     <meta name="keywords" content="Hutto, taxes, property">
     <meta name="author" content="City of Hutto">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Match fonts used by City of Hutto branding -->
+	<!-- Mukta for headings 
+	     Work Sans for text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Work+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-	<h1 style="text-align: center">City of Hutto Property Tax Calculator</h1>
+    <div class="container">
+	<div class="logo"><img src="images/HuttoLogo.png" width="75%" height="75%"></div>
+	<h1>Property Tax Estimator</h1>
+	
 	<p style="text-align: center">We provide this property tax calculator for informational purposes only. Calculations
 	   offer <strong><em>estimates of property taxes</em></strong>, not official values.</p>
-    <div class="container">
-
     <div class="property-rate-chart">
 
       <div class="well">
@@ -48,6 +56,7 @@
       <br />
       <div class="row">
         <div class="col-sm-12">
+          <!-- The JavaScript code replaces allTaxesChart with the chart -->
           <div id="allTaxesChart"></div>
         </div>
       </div>
@@ -56,9 +65,12 @@
 	  tax entity.</p>
       <div class="row">
         <div class="col-sm-12">
+ 		  <!-- The JavaScript code replaces allTaxesPieChart with the chart -->
           <div id="allTaxesPieChart"></div>
         </div>
       </div>
+      <!-- Eventually, this will loop through an array in JavaScript -->
+      <!--   Planned for v2.x -->
       <h3>Tax Rates</h3>
       <table class="table table-striped table-condensed">
         <tr>
@@ -101,15 +113,14 @@
         <hr>
         <p>How are these tax dollars allocated monthly for city services?</p>
       </div>
-
       <div class="row">
         <div class="col-sm-12">
           <div id="monthlyChart"></div>
         </div>
       </div>
-
-
- <h3>Portion of Tax Bill by Department</h3>
+    <h3>Portion of Tax Bill by Department</h3>
+      <!-- DEFINITELY needs to be a loop in the JavaScript -->
+      <!--   Revise in 2.x -->
       <table class="table table-striped table-condensed">
         <tr>
           <th>Department/Budget Item</th>
