@@ -1,9 +1,39 @@
+/* Property Tax Estimator Stylesheet         */
+/* Adjusting to match City of Hutto branding */
+/* 2024-09-06 Scott Wyatt                    */
+/*   Adding color codes, general formatting  */
 
-/* Typography, General */
-h1, h2, {
-	text-align: center;
+/* Hutto typefaces                           */
+/* Headlines: Mukta                          */
+/* Text: Work Sans                           */
+
+* {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Mukta", sans-serif;
+  font-style: normal;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+.logo {
+  float: left;
+  width: 25%; 
+  padding: 10px;
+}
+
+/* Begin standard class settings */
 .property-rate-chart h2,
 .property-rate-chart h3,
 .property-rate-chart table {
