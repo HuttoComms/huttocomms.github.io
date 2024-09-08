@@ -47,6 +47,7 @@ var taxRateCity = taxRateChosen
 // Default the Home Value to the average assessment for City
 document.getElementById("homeValue").value = avgHomeValue;
 
+// Set Google Chart options
 var chart;
 var data;
 var taxData;
@@ -85,7 +86,7 @@ taxRateChosen = parseFloat(listTaxRates.options[listTaxRates.selectedIndex].valu
 taxRateCity = taxRateChosen
 
   // Write property tax rates by tax entity to page
-  // Added formatting to fixed length 
+  // Added formatting to fixed-length decimal places 
   document.getElementById("taxRateCity").innerHTML = 
     accounting.toFixed(taxRateCity, 6);
   document.getElementById("taxRateCounty").innerHTML =
@@ -208,6 +209,7 @@ taxRateCity = taxRateChosen
   document.getElementById("portionXferOut").innerHTML =
     accounting.formatMoney(portionXferOut);  
   
+  // Data used for Department portion chart 
   data = google.visualization.arrayToDataTable([
     ["Department", "Monthly Cost", { role: "style" }, { role: "annotation" }],
     [
@@ -266,6 +268,7 @@ taxRateCity = taxRateChosen
     ],
   ]);
 
+  // Variables and taxData array to draw chart of overall property taxes
   var monthlyTaxCity = (homeTaxNumber * taxRateCity) / 12;
   var monthlyTaxCounty = (homeTaxNumber * taxRateCounty) / 12;
   var monthlyTaxSchools = (homeTaxNumber * taxRateSchools) / 12;
@@ -360,6 +363,7 @@ taxRateCity = taxRateChosen
     ],
   ]);
   
+  // Format data in the arrays for accounting style
   formatter = new google.visualization.NumberFormat({
     negativeColor: "red",
     negativeParens: true,
@@ -370,6 +374,7 @@ taxRateCity = taxRateChosen
   formatter.format(data, 1);
   formatter.format(taxData, 1);
 
+  // Insert the charts into the HTML page 
   chartAll = new google.visualization.BarChart(
     document.getElementById("allTaxesChart")
   );
@@ -387,6 +392,7 @@ taxRateCity = taxRateChosen
 
 }
 
+// If the window is resized, redraw all charts
 $(window).resize(function () {
   drawChart();
 });
