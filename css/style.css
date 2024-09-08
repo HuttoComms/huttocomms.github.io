@@ -1,8 +1,3 @@
-/* Property Tax Estimator Stylesheet */
-/* Adjusting to match City of Hutto branding *?
-/* 2024-09-06 Scott Wyatt  */
-/*   Adding color codes, general formatting */
-
 
 /* Typography, General */
 h1, h2, {
@@ -43,6 +38,15 @@ h1, h2, {
     text-align: center;
 }
 
+.property-rate-chart .well {
+    background-color: #333943;
+    margin-bottom: 30px;
+}
+
+.property-rate-chart .well input {
+    vertical-align: middle;
+}
+
 .property-rate-chart label {
     color: #fff;
     display: block;
@@ -76,18 +80,6 @@ h1, h2, {
     width: 75%;
 }
 
-pageContainer .userForm {
-    background-color: #000;
-    color: #FFF;
-    margin-bottom: 30px;
-}
-
-pageContainer .userForm input {
-    vertical-align: middle;
-}
-
-
-/* Responsive resizing and repositioning */
 @media (min-width: 750px) {
     .property-rate-chart label {
         display: inline-block;
@@ -105,4 +97,3 @@ pageContainer .userForm input {
         float: right !important;
     }
 }
-
