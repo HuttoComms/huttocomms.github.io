@@ -10,6 +10,10 @@
         margin-bottom: 0;
         text-align: left;
     }
+    well p {
+    	text-align: center;
+    }
+	
 }
 
 @media (min-width: 930px) {
@@ -23,8 +27,17 @@
 }
 
 /* Typography, General */
-h1, h2, p {
+h1, h2, {
 	text-align: center;
+}
+
+well {
+    background-color: #333943;
+    margin-bottom: 30px;
+}
+
+well input {
+    vertical-align: middle;
 }
 
 .property-rate-chart h2,
@@ -59,15 +72,6 @@ h1, h2, p {
     display: block;
     margin-bottom: 10px;
     text-align: center;
-}
-
-.property-rate-chart .well {
-    background-color: #333943;
-    margin-bottom: 30px;
-}
-
-.property-rate-chart .well input {
-    vertical-align: middle;
 }
 
 .property-rate-chart label {
