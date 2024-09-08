@@ -52,7 +52,7 @@ var data;
 var taxData;
 var formatter;
 
-var options = {
+var optionsMonthly = {
   legend: "none",
   vAxis: {
     title: "Cost per month",
@@ -62,11 +62,21 @@ var options = {
   annotations: { alwaysOutside: true },
 };
 
-var options2 = {
+var optionsAllTaxes = {
   legend: "none",
   bar: { groupWidth: "90%" },
   annotations: { alwaysOutside: true },
 };
+
+var optionsPie = {
+  'legend': 'none',
+   pieSliceText: 'label',
+  'width': 700,
+  'height': 700,
+  slices: {  0: {offset: 0.2}},
+  colors: ["#1C5D78", "#849AB2", "#C25027", "#D9A28D",
+    "#C14B55", "#A3A3A3", "#5B74C8"]
+}
 
 function drawChart() {
 
@@ -349,7 +359,7 @@ taxRateCity = taxRateChosen
         " per $100 valuation",
     ],
   ]);
-
+  
   formatter = new google.visualization.NumberFormat({
     negativeColor: "red",
     negativeParens: true,
@@ -363,12 +373,17 @@ taxRateCity = taxRateChosen
   chartAll = new google.visualization.BarChart(
     document.getElementById("allTaxesChart")
   );
-  chartAll.draw(taxData, options2);
+  chartAll.draw(taxData, optionsAllTaxes);
 
   chartMonthly = new google.visualization.ColumnChart(
     document.getElementById("monthlyChart")
   );
-  chartMonthly.draw(data, options);
+  chartMonthly.draw(data, optionsMonthly);
+
+  chartCompPie = new google.visualization.PieChart(
+  	document.getElementById("allTaxesPieChart")
+  );
+  chartCompPie.draw(taxData, optionsPie);
 
 }
 
