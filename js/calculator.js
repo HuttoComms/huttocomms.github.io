@@ -275,7 +275,7 @@ taxRateCity = taxRateChosen
     [
       "City of Hutto",
       monthlyTaxCity,
-      "fill-color:rgb(224,240,254);fill-opacity: 0.7",
+      "fill-color:rgb(28,93,120);fill-opacity: 0.7",
       accounting.formatMoney(monthlyTaxCity),
       "Monthly Cost: " +
         accounting.formatMoney(monthlyTaxCity) +
@@ -286,7 +286,7 @@ taxRateCity = taxRateChosen
     [
       "Williamson County",
       monthlyTaxCounty,
-      "fill-color:rgb(73,177,213);fill-opacity: 0.7",
+      "fill-color:rgb(132,154,178);fill-opacity: 0.7",
       accounting.formatMoney(monthlyTaxCounty),
       "Monthly Cost: " +
         accounting.formatMoney(monthlyTaxCounty) +
@@ -297,7 +297,7 @@ taxRateCity = taxRateChosen
     [
       "Hutto ISD",
       monthlyTaxSchools,
-      "fill-color:rgb(248,137,136);fill-opacity: 0.7",
+      "fill-color:rgb(194,80,39);fill-opacity: 0.7",
       accounting.formatMoney(monthlyTaxSchools),
       "Monthly Cost: " +
         accounting.formatMoney(monthlyTaxSchools) +
@@ -308,7 +308,7 @@ taxRateCity = taxRateChosen
     [
       "Higher Education",
       monthlyTaxHigherEd,
-      "fill-color:rgb(242,243,196);fill-opacity: 0.7",
+      "fill-color:rgb(217,162,141);fill-opacity: 0.7",
       accounting.formatMoney(monthlyTaxHigherEd),
       "Monthly Cost: " +
         accounting.formatMoney(monthlyTaxHigherEd) +
@@ -319,7 +319,7 @@ taxRateCity = taxRateChosen
     [
       "Emergency Services District",
       monthlyTaxESD,
-      "fill-color:rgb(198,189,238);fill-opacity: 0.7",
+      "fill-color:rgb(193,75,85);fill-opacity: 0.7",
       accounting.formatMoney(monthlyTaxESD),
       "Monthly Cost: " +
         accounting.formatMoney(monthlyTaxESD) +
@@ -329,7 +329,7 @@ taxRateCity = taxRateChosen
     ],    [
       "FM/RM Road Improvements",
       monthlyTaxRoads,
-      "fill-color:rgb(218,237,180);fill-opacity: 0.7",
+      "fill-color:rgb(163,163,163);fill-opacity: 0.7",
       accounting.formatMoney(monthlyTaxRoads),
       "Monthly Cost: " +
         accounting.formatMoney(monthlyTaxRoads) +
@@ -340,7 +340,7 @@ taxRateCity = taxRateChosen
     [
       "Water Control Improvement District",
       monthlyTaxWCID,
-      "fill-color:rgb(160,133,175);fill-opacity: 0.7",
+      "fill-color:rgb(91,116,133);fill-opacity: 0.7",
       accounting.formatMoney(monthlyTaxWCID),
       "Monthly Cost: " +
         accounting.formatMoney(monthlyTaxWCID) +
