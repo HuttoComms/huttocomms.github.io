@@ -27,15 +27,6 @@ h1, h2, {
 	text-align: center;
 }
 
-userForm {
-    background-color: #333943;
-    margin-bottom: 30px;
-}
-
-userForm input {
-    vertical-align: middle;
-}
-
 .property-rate-chart h2,
 .property-rate-chart h3,
 .property-rate-chart table {
@@ -103,3 +94,12 @@ userForm input {
     width: 75%;
 }
 
+userForm {
+    background-color: #333943;
+    color: #FFF;
+    margin-bottom: 30px;
+}
+
+userForm input {
+    vertical-align: middle;
+}
