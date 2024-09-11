@@ -4,12 +4,13 @@ google.charts.setOnLoadCallback(drawChart);
 // Tax Rate Calculator and Graphing
 //   Original code by City of Round Rock, Texas
 //   Modified for the City of Hutto
-// 2024-09-03 C. S. Wyatt began conversion
+// 2024-09-03 C. Scott Wyatt (CSW) began the conversion
+// 2024-09-11 CSW - Updated values and calculations 
 
 // Version 2.x should use arrays to consolidate budget lines!!
 //   Array for property tax entities
 //   Array for departments and lines 
-//   Cycle through the arrays, instead of hard-coding lines
+//   Cycle through the arrays instead of hard-coding lines
 
 // Major entity tax rates, including county and ISD
 var taxRateCity = 0.4221140;
@@ -126,38 +127,39 @@ taxRateCity = taxRateChosen
     accounting.formatMoney(amountSaved);
 
 // Eventually, an array with Description, ID, percentage, etc.
-  var portionPolice = monthlyIndividualCityTax * 0.3023;
-  var portionStreets = monthlyIndividualCityTax * 0.1472;
-  var portionParks = monthlyIndividualCityTax * 0.0648;
-  var portionDevServices = monthlyIndividualCityTax * 0.0622;
-  var portionFinance = monthlyIndividualCityTax * 0.0508;
-  var portionHR = monthlyIndividualCityTax * 0.0402;
-  var portionIT = monthlyIndividualCityTax * 0.0451;
-  var portionEng = monthlyIndividualCityTax * 0.0360;
+// 2024-09-11 CSW - Updated values based on 2025 spreadsheet 
+  var portionPolice = monthlyIndividualCityTax * 0.2971 ;
+  var portionStreets = monthlyIndividualCityTax * 0.1447 ;
+  var portionParks = monthlyIndividualCityTax *  0.0637 ;
+  var portionDevServices = monthlyIndividualCityTax *  0.0611 ;
+  var portionFinance = monthlyIndividualCityTax *  0.0500 ;
+  var portionIT = monthlyIndividualCityTax *  0.0443 ;
+  var portionHR = monthlyIndividualCityTax *  0.0395 ;
+  var portionEng = monthlyIndividualCityTax *  0.0354 ;
   // CMO = City Manager's Office
-  var portionCMO = monthlyIndividualCityTax * 0.0345;
-  // NonDept = Non-Departmental
-  var portionNonDept = monthlyIndividualCityTax * 0.0206;
-  var portionLegal = monthlyIndividualCityTax * 0.0248;
+  var portionCMO = monthlyIndividualCityTax *  0.0339 ;
+  var portionLegal = monthlyIndividualCityTax *  0.0244 ;
   // ConstInsp = Construction Inspection
-  var portionConstInsp = monthlyIndividualCityTax * 0.0238;
-  var portionEconDev = monthlyIndividualCityTax * 0.0215;  
-  var portionCityCouncil = monthlyIndividualCityTax * 0.0205;
-  var portionFacilities = monthlyIndividualCityTax * 0.0199;
-  var portionLibrary = monthlyIndividualCityTax * 0.0170;
-  var portionComms = monthlyIndividualCityTax * 0.0162;
-  var portionMuniCourt = monthlyIndividualCityTax * 0.0160;
-  var portionCitySec = monthlyIndividualCityTax * 0.0135;
+  var portionConstInsp = monthlyIndividualCityTax *  0.0234 ;
+  var portionEconDev = monthlyIndividualCityTax *  0.0211 ;  
+  // NonDept = Non-Departmental
+  var portionNonDept = monthlyIndividualCityTax *  0.0202 ;
+  var portionCityCouncil = monthlyIndividualCityTax *  0.0201 ;
+  var portionFacilities = monthlyIndividualCityTax *  0.0195 ;
+  var portionLibrary = monthlyIndividualCityTax *  0.0170 ;
+  var portionComms = monthlyIndividualCityTax *  0.0160 ;
+  var portionMuniCourt = monthlyIndividualCityTax *  0.0157 ;
+  var portionCitySec = monthlyIndividualCityTax *  0.0133 ;
   // EMC = Emergency Management 
-  var portionEMC = monthlyIndividualCityTax * 0.0106;
-  var portionFleet = monthlyIndividualCityTax * 0.0104;
+  var portionEMC = monthlyIndividualCityTax *  0.0104 ;
+  var portionFleet = monthlyIndividualCityTax *  0.0102 ;
   // Culture = Community & Culture Development
-  var portionCulture = monthlyIndividualCityTax * 0.0101;
-  var portionStratOps = monthlyIndividualCityTax * 0.0056;
+  var portionCulture = monthlyIndividualCityTax *  0.0099 ;
+  var portionStratOps = monthlyIndividualCityTax *  0.0055 ;
   // XferOut = Transfers Out
-  var portionXferOut = monthlyIndividualCityTax * 0.0036;
-  // All categories after Engineering
-  var portionOther = monthlyIndividualCityTax * 0.25015;
+  var portionXferOut = monthlyIndividualCityTax *  0.0035 ;
+  // All categories after the top 10
+  var portionOther = monthlyIndividualCityTax * 0.2059 ;
 
 // Eventually, cycle through the array and write document 
   document.getElementById("portionPolice").innerHTML =
@@ -243,16 +245,16 @@ taxRateCity = taxRateChosen
       accounting.formatMoney(portionFinance),
     ],
     [
-      "Human Resources",
-      portionHR,
-      "fill-color:rgb(218,237,180);fill-opacity: 0.7",
-      accounting.formatMoney(portionHR),
-    ],
-    [
       "Information Technology",
       portionIT,
       "fill-color:rgb(160,133,175);fill-opacity: 0.7",
       accounting.formatMoney(portionIT),
+    ],
+    [
+      "Human Resources",
+      portionHR,
+      "fill-color:rgb(218,237,180);fill-opacity: 0.7",
+      accounting.formatMoney(portionHR),
     ],
     [
       "Engineering",
@@ -261,11 +263,18 @@ taxRateCity = taxRateChosen
       accounting.formatMoney(portionEng),
     ],
 	[
-      "Other Items",
-      portionOther,
+      "City Manager's Office",
+      portionCMO,
       "fill-color:rgb(128,250,128);fill-opacity: 0.7",
-      accounting.formatMoney(portionOther),
+      accounting.formatMoney(portionCMO),
     ],
+    [
+      "Legal",
+      portionLegal,
+      "fill-color:rgb(160,133,175);fill-opacity: 0.7",
+      accounting.formatMoney(portionLegal),
+    ],
+    
   ]);
 
   // Variables and taxData array to draw chart of overall property taxes

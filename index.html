@@ -3,8 +3,9 @@
   <head>
     <title>City of Hutto Property Tax Calculator</title>
     <!-- Based on code developed by the City of Round Rock -->
-    <!-- 2024-09-05 Scott Wyatt - Revised page design for City of Hutto -->
+    <!-- 2024-09-05 C. Scott Wyatt (CSW) - Revised page design for City of Hutto -->
     <!--   Standardized variable names, added more to accommodate Hutto tax items -->
+    <!-- 2024-09-11 CSW - Revised order of summaries and charts --> 
     <meta charset="UTF-8">
     <meta name="description" content="Property Tax Estimator for the City of Hutto, Texas.">
     <meta name="keywords" content="Hutto, taxes, property">
@@ -49,6 +50,154 @@
         </form>
       </div>
 
+
+
+      <div class="estimated-taxes">
+        <!-- 2024-09-11 Moved to top of page -->
+        <h2>City Tax Breakdown</h2>
+        <p>Based on a tax rate of <strong><span id="taxRateDisp"><span class="badge">CALCULATING</span></span></strong>
+        <p>On a <strong><span id="yourHomeValue"><span class="badge">CALCULATING</span></span></strong> home your city property tax is <strong><span id="monthlyRateInfo"><span class="badge">CALCULATING</span></span></strong> monthly / <strong><span id="yearlyRateInfo"><span class="badge">CALCULATING</span></span></strong> annually</p>
+        <hr>
+        <p>Amount saved on your tax bill this year due to the City's half-cent sales tax devoted to property tax relief is <strong><span id="amountSaved"><span class="badge">CALCULATING</span></span></strong></p>
+        <hr>
+        <p>How are these tax dollars allocated monthly for city services?</p>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="monthlyChart"></div>
+        </div>
+      </div>
+    <h3>Portion of Tax Bill by Department</h3>
+      <!-- DEFINITELY needs to be a loop in the JavaScript -->
+      <!--   Revise in 2.x -->
+      <table class="table table-striped table-condensed">
+        <tr>
+          <th>Department/Budget Item</th>
+          <th>Percent of Budget</th>
+          <th>Monthly Household Tax Portion</th>
+        <tr>
+          <td>Police</td>
+          <td>29.71%</td>
+          <td><span id="portionPolice"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Streets and Drainage</td>
+          <td>14.47%</td>
+          <td><span id="portionStreets"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+    	<tr>
+          <td>Parks and Recreation</td>
+          <td>06.37%</td>
+          <td><span id="portionParks"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Development Services</td>
+          <td>06.11%
+          <td><span id="portionDevServices"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Finance</td>
+          <td>05.00%</td>
+          <td><span id="portionFinance"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Information Technology</td>
+          <td>04.43%</td>
+          <td><span id="portionIT"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Human Resources</td>
+          <td>03.95%</td>
+          <td><span id="portionHR"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Engineering</td>
+          <td>03.54%</td>
+          <td><span id="portionEng"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>City Manager's Office</td>
+          <td>03.39%</td>
+          <td><span id="portionCMO"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Legal</td>
+          <td>02.44%</td>
+          <td><span id="portionLegal"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Construction Inspection</td>
+          <td>02.34%</td>
+          <td><span id="portionConstInsp"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Economic Development</td>
+          <td>02.11%</td>
+          <td><span id="portionEconDev"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Non-Departmental</td>
+          <td>02.02%</td>
+          <td><span id="portionNonDept"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>City Council</td>
+          <td>02.01%</td>
+          <td><span id="portionCityCouncil"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Facilities Maintenance</td>
+          <td>01.95%</td>
+          <td><span id="portionFacilities"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Library</td>
+          <td>01.70%</td>
+          <td><span id="portionLibrary"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Communications</td>
+          <td>01.60%</td>
+          <td><span id="portionComms"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Municipal Court</td>
+          <td>01.57%</td>
+          <td><span id="portionMuniCourt"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>City Secretary</td>
+          <td>01.33%</td>
+          <td><span id="portionCitySec"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Emergency Management</td>
+          <td>01.04%</td>
+          <td><span id="portionEMC"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>City Fleet Maintenance</td>
+          <td>01.02%</td>
+          <td><span id="portionFleet"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Community and Cultural Development</td>
+          <td>00.99%</td>
+          <td><span id="portionCulture"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Strategic Operations</td>
+          <td>00.55%</td>
+          <td><span id="portionStratOps"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+ 		<tr>
+          <td>Transfers Out</td>
+          <td>00.35%</td>
+          <td><span id="portionXferOut"><span class="badge">RETRIEVING</span></span></td>
+        </tr>
+      </table>  
+      
+      <!-- 2024-09-11 Moved to follow city expenditures by deptartment -->
       <h2>Property Taxes by Entity</h2>
       <p>Several entities raise revenues through property taxes, including the City, County, and 
       School District.</p>
@@ -102,151 +251,10 @@
           <td>$<span id="taxRateWCID"><span class="badge">RETRIEVING</span></span> per $100 valuation</td>
         </tr>
       </table>
-      <em>* These rates are proposed/estimated.  The final rates could change once the entities adopt them between now and the end of September.</em><br /><br />
-
-      <div class="estimated-taxes">
-        <h2>City Tax Breakdown</h2>
-        <p>Based on a tax rate of <strong><span id="taxRateDisp"><span class="badge">CALCULATING</span></span></strong>
-        <p>On a <strong><span id="yourHomeValue"><span class="badge">CALCULATING</span></span></strong> home your city property tax is <strong><span id="monthlyRateInfo"><span class="badge">CALCULATING</span></span></strong> monthly / <strong><span id="yearlyRateInfo"><span class="badge">CALCULATING</span></span></strong> annually</p>
-        <hr>
-        <p>Amount saved on your tax bill this year due to the City's half-cent sales tax devoted to property tax relief is <strong><span id="amountSaved"><span class="badge">CALCULATING</span></span></strong></p>
-        <hr>
-        <p>How are these tax dollars allocated monthly for city services?</p>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div id="monthlyChart"></div>
-        </div>
-      </div>
-    <h3>Portion of Tax Bill by Department</h3>
-      <!-- DEFINITELY needs to be a loop in the JavaScript -->
-      <!--   Revise in 2.x -->
-      <table class="table table-striped table-condensed">
-        <tr>
-          <th>Department/Budget Item</th>
-          <th>Percent of Budget</th>
-          <th>Monthly Household Tax Portion</th>
-        <tr>
-          <td>Police</td>
-          <td>30.23%</td>
-          <td><span id="portionPolice"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Streets and Drainage</td>
-          <td>14.72%</td>
-          <td><span id="portionStreets"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
-    	<tr>
-          <td>Parks and Recreation</td>
-          <td>06.48%</td>
-          <td><span id="portionParks"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Development Services</td>
-          <td>06.22%
-          <td><span id="portionDevServices"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Finance</td>
-          <td>05.08%</td>
-          <td><span id="portionFinance"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Human Resources</td>
-          <td>04.02%</td>
-          <td><span id="portionHR"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Information Technology</td>
-          <td>04.51%</td>
-          <td><span id="portionIT"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Engineering</td>
-          <td>03.60%</td>
-          <td><span id="portionEng"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>City Manager's Office</td>
-          <td>03.45%</td>
-          <td><span id="portionCMO"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Non-Departmental</td>
-          <td>02.06%</td>
-          <td><span id="portionNonDept"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Legal</td>
-          <td>02.48%</td>
-          <td><span id="portionLegal"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Construction Inspection</td>
-          <td>02.38%</td>
-          <td><span id="portionConstInsp"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Economic Development</td>
-          <td>02.15%</td>
-          <td><span id="portionEconDev"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>City Council</td>
-          <td>0.205%</td>
-          <td><span id="portionCityCouncil"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Facilities Maintenance</td>
-          <td>01.99%</td>
-          <td><span id="portionFacilities"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Library</td>
-          <td>01.70%</td>
-          <td><span id="portionLibrary"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Communications</td>
-          <td>01.62%</td>
-          <td><span id="portionComms"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Municipal Court</td>
-          <td>01.60%</td>
-          <td><span id="portionMuniCourt"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>City Secretary</td>
-          <td>01.35%</td>
-          <td><span id="portionCitySec"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Emergency Management</td>
-          <td>01.06%</td>
-          <td><span id="portionEMC"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>City Fleet Maintenance</td>
-          <td>01.04%</td>
-          <td><span id="portionFleet"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Community and Cultural Development</td>
-          <td>01.01%</td>
-          <td><span id="portionCulture"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Strategic Operations</td>
-          <td>00.56%</td>
-          <td><span id="portionStratOps"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
- 		<tr>
-          <td>Transfers Out</td>
-          <td>00.36%</td>
-          <td><span id="portionXferOut"><span class="badge">RETRIEVING</span></span></td>
-        </tr>
-      </table>  
+      <p><em>* These rates are proposed/estimated.  The final rates could change once the entities 
+      adopt them between now and the end of September.</em></p>
+      <br />
+      <br />
 
     </div> <!-- end property-chart -->
     </div> <!-- end of container -->
