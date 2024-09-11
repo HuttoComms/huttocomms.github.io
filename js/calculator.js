@@ -72,8 +72,9 @@ var optionsAllTaxes = {
   annotations: { alwaysOutside: true },
 };
 
-// 'legend': 'none',  -- removes the default legend
+// 'legend': 'none', -- removes the default legend
 var optionsPie = {
+   'legend': 'none',
    pieSliceText: 'label',
   'width': 700,
   'height': 700,
@@ -256,19 +257,19 @@ taxRateCity = taxRateChosen
     [
       "Human Resources",
       portionHR,
-      "fill-color:rgb(218,237,180);fill-opacity: 0.7",
+      "fill-color:rgb(247,191,22);fill-opacity: 0.7",
       accounting.formatMoney(portionHR),
     ],
     [
       "Engineering",
       portionEng,
-      "fill-color:rgb(207,154,184);fill-opacity: 0.7",
+      "fill-color:rgb(48,74,90);fill-opacity: 0.7",
       accounting.formatMoney(portionEng),
     ],
 	[
       "City Manager's Office",
       portionCMO,
-      "fill-color:rgb(128,250,128);fill-opacity: 0.7",
+      "fill-color:rgb(217,162,142);fill-opacity: 0.7",
       accounting.formatMoney(portionCMO),
     ],
     [
