@@ -72,8 +72,8 @@ var optionsAllTaxes = {
   annotations: { alwaysOutside: true },
 };
 
+// 'legend': 'none',  -- removes the default legend
 var optionsPie = {
-  'legend': 'none',
    pieSliceText: 'label',
   'width': 700,
   'height': 700,
@@ -213,7 +213,8 @@ taxRateCity = taxRateChosen
   document.getElementById("portionXferOut").innerHTML =
     accounting.formatMoney(portionXferOut);  
   
-  // Data used for Department portion chart 
+  // Data used for Department portion chart
+  //   Passed as an array to Google Charts 
   data = google.visualization.arrayToDataTable([
     ["Department", "Monthly Cost", { role: "style" }, { role: "annotation" }],
     [
