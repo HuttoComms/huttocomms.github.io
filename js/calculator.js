@@ -307,7 +307,7 @@ taxRateCity = taxRateChosen
       "Monthly Cost: " +
         accounting.formatMoney(monthlyTaxCity) +
         "\nRate = $" +
-        taxRateCity +
+        taxRateCityWithIS +
         " per $100 valuation",
     ],
     [
