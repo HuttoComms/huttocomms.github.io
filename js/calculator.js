@@ -14,13 +14,14 @@ google.charts.setOnLoadCallback(drawChart);
 
 // Major entity tax rates, including county and ISD
 // 2024-09-11 Verified Data
-var taxRateCity = 0.4221140;
-var taxRateCounty = 0.3331160;
-var taxRateSchools = 1.2075000; 
-var taxRateHigherEd = 0.0383200;
-var taxRateESD = 0.1000000;
-var taxRateRoads = 0.0443290;
-var taxRateWCID = 0.0162650;
+var taxRateCity = 0.4221140 ;
+var taxRateCityWithIS = 0.4221140 ;
+var taxRateCounty = 0.3331160 ;
+var taxRateSchools = 1.2075000 ; 
+var taxRateHigherEd = 0.039130 ;
+var taxRateESD = 0.100000 ;
+var taxRateRoads = 0.044329 ;
+var taxRateWCID = 0.017000 ;
 
 // Average home value for the city - UPDATE ANNUALLY
 var avgHomeValue = 361281;
@@ -279,7 +280,8 @@ taxRateCity = taxRateChosen
   ]);
 
   // Variables and taxData array to draw chart of overall property taxes
-  var monthlyTaxCity = (homeTaxNumber * taxRateCity) / 12;
+  // 2024-09-11 CSW - Updated city tax to include debt service
+  var monthlyTaxCity = (homeTaxNumber * taxRateCityWithIS) / 12;
   var monthlyTaxCounty = (homeTaxNumber * taxRateCounty) / 12;
   var monthlyTaxSchools = (homeTaxNumber * taxRateSchools) / 12;
   var monthlyTaxHigherEd = (homeTaxNumber * taxRateHigherEd) / 12;
@@ -361,7 +363,7 @@ taxRateCity = taxRateChosen
         " per $100 valuation",
     ],  
     [
-      "Water Control Improvement District",
+      "Upper Brushy Creek WCID",
       monthlyTaxWCID,
       "fill-color:rgb(91,116,133);fill-opacity: 0.7",
       accounting.formatMoney(monthlyTaxWCID),
