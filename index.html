@@ -24,37 +24,30 @@
     <div class="container">
 	<div class="logo"><img src="/images/HuttoLogo.png" width="75%" height="75%"></div>
 	<h1>Property Tax Estimator</h1>
-	
 	<p>We provide this property tax calculator for informational purposes only. Calculations
-	   offer <strong><em>estimates of property taxes</em></strong>, not official values. Enter your appraised home value,
+	  offer <strong><em>estimates of property taxes</em></strong>, not official values. Enter your appraised home value,
     select a tax rate to model, and click <strong><em>Calculate</em></strong>. If you do not know your home's adjusted
     appraisal, you may search the Williamson County database for your address by clicking <strong><em>Property
-      Value Lookup</em></strong>.</p>
+    Value Lookup</em></strong>.</p>
     <div class="property-rate-chart">
-
       <div class="well">
         <form class="form-inline" role="form" onsubmit="rateCalculator(); return false;">
           <span class="form-container">
             <label>Home Value: $</label>
             <input type="text" name="homeValue" id="homeValue" class="inputNumber" onkeypress="return isNumberKey(event)" value=""></input>
-            
             <!-- Select a tax rate -->
             <!-- Verify rates annually!! -->
-			<label for="taxRateList">Tax Rate:</label>
-			<select id="taxRateList" onchange="drawChart(); return false;">
-				<option value="0.288482">Current Rate of 0.288482</option>
-				<option value="0.265921" selected="selected">No New Revenue Rate of 0.265921</option>
-				<option value="0.325715">Voter-Approved Rate of 0.325715</option>
-			</select>
-            
+			      <label for="taxRateList">Tax Rate:</label>
+			      <select id="taxRateList" onchange="drawChart(); return false;">
+				      <option value="0.288482">Current Rate of 0.288482</option>
+				      <option value="0.265921" selected="selected">No New Revenue Rate of 0.265921</option>
+				      <option value="0.325715">Voter-Approved Rate of 0.325715</option>
+			      </select>
             <input type="submit" onclick="drawChart(); return false;" class="btn btn-primary" value="Calculate"></input>
           </span>
           <div class="pull-right property-value-lookup"><a class="btn btn-default" target="_blank" href="http://search.wcad.org">Property Value Lookup</a></div>
         </form>
       </div>
-
-
-
       <div class="estimated-taxes">
         <!-- 2024-09-11 Moved to top of page -->
         <h2>City Tax Breakdown</h2>
@@ -199,7 +192,6 @@
           <td><span id="portionXferOut"><span class="badge">RETRIEVING</span></span></td>
         </tr>
       </table>  
-      
       <!-- 2024-09-11 Moved to follow city expenditures by deptartment -->
       <h2>Property Taxes by Entity</h2>
       <p>Several entities raise revenues through property taxes, including the City, County, and 
@@ -218,8 +210,8 @@
 	  tax entity. Hover or tap a slice for the name of tax entity and more details. </p>
       <div class="row">
         <div class="col-sm-12">
- 		  <!-- The JavaScript code replaces allTaxesPieChart with the chart -->
-          <div id="allTaxesPieChart"></div>
+ 		      <!-- The JavaScript code replaces allTaxesPieChart with the chart -->
+          <div id="allTaxesPieChart" style="display: flex; justify-content: center;"></div>
         </div>
       </div>
       <!-- Eventually, this will loop through an array in JavaScript -->

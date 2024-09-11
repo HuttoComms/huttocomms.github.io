@@ -74,8 +74,8 @@ var optionsAllTaxes = {
 
 // 'legend': 'none', -- removes the default legend
 var optionsPie = {
-   'legend': 'none',
-   pieSliceText: 'label',
+  'legend': 'none',
+  pieSliceText: 'label',
   'width': 700,
   'height': 700,
   slices: {  0: {offset: 0.2}},
