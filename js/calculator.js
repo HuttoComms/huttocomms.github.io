@@ -13,9 +13,10 @@ google.charts.setOnLoadCallback(drawChart);
 //   Cycle through the arrays instead of hard-coding lines
 
 // Major entity tax rates, including county and ISD
+// 2024-09-11 Verified Data
 var taxRateCity = 0.4221140;
 var taxRateCounty = 0.3331160;
-var taxRateSchools = 1.2075000;
+var taxRateSchools = 1.2075000; 
 var taxRateHigherEd = 0.0383200;
 var taxRateESD = 0.1000000;
 var taxRateRoads = 0.0443290;
@@ -112,7 +113,7 @@ taxRateCity = taxRateChosen
   var homeTaxNumber = homeMultiplier / 100;
   var individualCityTax = homeTaxNumber * taxRateCity;
   var monthlyIndividualCityTax = individualCityTax / 12;
-  var amountSaved = (homeMultiplier / 100) * 0.117;
+  var amountSaved = (homeMultiplier * 0.065039) / 100;
 
   // WRITE TAX INFO TO PAGE
   document.getElementById("taxRateDisp").innerHTML = 

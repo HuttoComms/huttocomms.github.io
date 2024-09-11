@@ -200,7 +200,7 @@
       <!-- 2024-09-11 Moved to follow city expenditures by deptartment -->
       <h2>Property Taxes by Entity</h2>
       <p>Several entities raise revenues through property taxes, including the City, County, and 
-      School District.</p>
+      School District. The rates in this chart include operating expenses (Maintenance &amp; Operations) and debt servicing (Interest &amp; Sinking).</p>
       <p>&nbsp;</>
       <br />
       <div class="row">
@@ -220,35 +220,47 @@
       </div>
       <!-- Eventually, this will loop through an array in JavaScript -->
       <!--   Planned for v2.x -->
+      <!-- 2024-09-11 CSW - Added header row, source for data -->
       <h3>Tax Rates</h3>
       <table class="table table-striped table-condensed">
         <tr>
+          <th>Entity</th>
+          <th>Tax Rate</th>
+          <th>Source of Data and Notes</th>
+        <tr>
           <td>City of Hutto</td>
           <td>$<span id="taxRateCity"><span class="badge">RETRIEVING</span></span> per $100 valuation</td>
+          <td><a href="https://www.huttotx.gov/204/Budget">City of Hutto Budget</a></td>
         </tr>
         <tr>
           <td>Williamson County</td>
           <td>$<span id="taxRateCounty"><span class="badge">RETRIEVING</span></span> per $100 valuation</td>
+          <td>Williamson County...</td>
         </tr>
         <tr>
           <td>Hutto ISD</td>
           <td>$<span id="taxRateSchools"><span class="badge">RETRIEVING</span></span> per $100 valuation</td>
+          <td><a href="https://www.hipponation.org/financial-services/local-tax-information">Hutto ISD Local Tax Information</a></td>
         </tr>
         <tr>
           <td>Higher Education Center</td>
           <td>$<span id="taxRateHigherEd"><span class="badge">RETRIEVING</span></span> per $100 valuation</td>
+          <td></td>
         </tr>
 		<tr>
           <td>Emergency Services (ESD #3)</td>
           <td>$<span id="taxRateESD"><span class="badge">RETRIEVING</span></span> per $100 valuation</td>
+          <td></td>
         </tr>
 		<tr>
           <td>County Road Improvements</td>
           <td>$<span id="taxRateRoads"><span class="badge">RETRIEVING</span></span> per $100 valuation</td>
+          <td></td>
         </tr>        
         <tr>
           <td>Water Control Improvement District</td>
-          <td>$<span id="taxRateWCID"><span class="badge">RETRIEVING</span></span> per $100 valuation</td>
+          <td>$<span id="taxRateWCID"><span class="badge">RETRIEVING</span></span> per $100 valuation</td>           
+          <td></td>
         </tr>
       </table>
       <p><em>* These rates are proposed/estimated.  The final rates could change once the entities 
