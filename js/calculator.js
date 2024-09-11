@@ -91,7 +91,7 @@ taxRateCity = taxRateChosen
   // Write property tax rates by tax entity to page
   // Added formatting to fixed-length decimal places 
   document.getElementById("taxRateCity").innerHTML = 
-    accounting.toFixed(taxRateCity, 6);
+    accounting.toFixed(taxRateCityWithIS, 6);
   document.getElementById("taxRateCounty").innerHTML =
 	accounting.toFixed(taxRateCounty, 6);
   document.getElementById("taxRateSchools").innerHTML = 
