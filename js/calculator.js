@@ -14,8 +14,9 @@ google.charts.setOnLoadCallback(drawChart);
 
 // Major entity tax rates, including county and ISD
 // 2024-09-11 Verified Data
-var taxRateCity = 0.4221140 ;
-var taxRateCityWithIS = 0.4221140 ;
+var taxRateCity = 0.399553 ;
+// 2023-2024 rate with debt was -- var taxRateCityWithIS = 0.4221140 ;
+var taxRateCityWithIS = 0.399553 ;
 var taxRateCounty = 0.3331160 ;
 var taxRateSchools = 1.2075000 ; 
 var taxRateHigherEd = 0.039130 ;
@@ -161,7 +162,7 @@ taxRateCity = taxRateChosen
   var portionStratOps = monthlyIndividualCityTax *  0.0055 ;
   // XferOut = Transfers Out
   var portionXferOut = monthlyIndividualCityTax *  0.0035 ;
-  // All categories after the top 10
+  // All categories after the top 10 (verify)
   var portionOther = monthlyIndividualCityTax * 0.2059 ;
 
 // Eventually, cycle through the array and write document 
