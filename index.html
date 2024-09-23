@@ -39,9 +39,9 @@
             <!-- Verify rates annually!! -->
 			      <label for="taxRateList">Tax Rate:</label>
 			      <select id="taxRateList" onchange="drawChart(); return false;">
-				      <option value="0.288482">Current Rate of 0.288482</option>
-				      <option value="0.265921" selected="selected">No New Revenue Rate of 0.265921</option>
-				      <option value="0.325715">Voter-Approved Rate of 0.325715</option>
+				      <option value="0.265921" selected="selected">2025 (No New Revenue) Rate of 0.265921</option>
+              <option value="0.288482">2024 Rate of 0.288482</option>
+				      <!-- option value="0.325715">Voter-Approved Rate of 0.325715</option -->
 			      </select>
             <input type="submit" onclick="drawChart(); return false;" class="btn btn-primary" value="Calculate"></input>
           </span>
@@ -51,8 +51,9 @@
       <div class="estimated-taxes">
         <!-- 2024-09-11 Moved to top of page -->
         <h2>City Tax Breakdown</h2>
-        <p>Based on a tax rate of <strong><span id="taxRateDisp"><span class="badge">CALCULATING</span></span></strong>
-        <p>On a <strong><span id="yourHomeValue"><span class="badge">CALCULATING</span></span></strong> home your city property tax is <strong><span id="monthlyRateInfo"><span class="badge">CALCULATING</span></span></strong> monthly / <strong><span id="yearlyRateInfo"><span class="badge">CALCULATING</span></span></strong> annually</p>
+        <p>Based on a tax rate of <strong><span id="taxRateDisp"><span class="badge">CALCULATING</span></span></strong></p>
+        <p>On a <strong><span id="yourHomeValue"><span class="badge">CALCULATING</span></span></strong> home, 
+           your city property tax is <strong><span id="monthlyRateInfo"><span class="badge">CALCULATING</span></span></strong> monthly / <strong><span id="yearlyRateInfo"><span class="badge">CALCULATING</span></span></strong> annually</p>
         <hr>
         <p>Amount saved on your tax bill this year due to the City's half-cent sales tax devoted to property tax relief is <strong><span id="amountSaved"><span class="badge">CALCULATING</span></span></strong></p>
         <hr>
@@ -195,9 +196,11 @@
       <!-- 2024-09-11 Moved to follow city expenditures by department -->
       <h2>Property Taxes by Entity</h2>
       <p>Several entities raise revenues through property taxes, including the City, County, and 
-      School District. The rates in this chart include operating expenses (Maintenance &amp; Operations) and debt servicing (Interest &amp; Sinking).</p>
-      <p>All models are calculated based on the most recent 2024 adopted budgets. These charts do not reflect the proposed budgets for 
-        the upcoming fiscal year.</p>
+         School District. The rates in this chart include operating expenses (Maintenance &amp; Operations) 
+         and debt servicing (Interest &amp; Sinking).</p>
+      <p>All models are calculated based on the most recently adopted budgets (2024, 2025). 
+         These charts do not reflect the proposed budgets for 
+         the upcoming fiscal year.</p>
       <br />
       <div class="row">
         <div class="col-sm-12">
