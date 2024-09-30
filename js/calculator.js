@@ -6,6 +6,7 @@ google.charts.setOnLoadCallback(drawChart);
 //   Modified for the City of Hutto
 // 2024-09-03 C. Scott Wyatt (CSW) began the conversion
 // 2024-09-11 CSW - Updated values and calculations 
+// 2024-09-30 CSW - Final revisions to department percentages
 
 // Version 2.x should use arrays to consolidate budget lines!!
 //   Array for property tax entities
@@ -46,7 +47,7 @@ var taxRoads = 0.0443290;
 // Initialize drop-down choices
 var listTaxRates = document.getElementById("taxRateList");  
 var taxRateChosen = parseFloat(listTaxRates.options[listTaxRates.selectedIndex].value);
-var taxRateCity = taxRateChosen
+var taxRateCity = taxRateChosen;
 
 // Default the Home Value to the average assessment for City
 document.getElementById("homeValue").value = avgHomeValue;
@@ -86,27 +87,16 @@ var optionsPie = {
 
 function drawChart() {
 
-listTaxRates = document.getElementById("taxRateList");  
-taxRateChosen = parseFloat(listTaxRates.options[listTaxRates.selectedIndex].value);
-taxRateCity = taxRateChosen
-
-  // Write property tax rates by tax entity to page
-  // Added formatting to fixed-length decimal places 
-  document.getElementById("taxRateCityWithIS").innerHTML = 
-    accounting.toFixed(taxRateCityWithIS, 6);
-  document.getElementById("taxRateCounty").innerHTML =
-	accounting.toFixed(taxRateCounty, 6);
-  document.getElementById("taxRateSchools").innerHTML = 
-    accounting.toFixed(taxRateSchools, 6);
-  document.getElementById("taxRateHigherEd").innerHTML = 
-    accounting.toFixed(taxRateHigherEd, 6);
-  document.getElementById("taxRateWCID").innerHTML = 
-    accounting.toFixed(taxRateWCID, 6);
-  document.getElementById("taxRateESD").innerHTML = 
-    accounting.toFixed(taxRateESD, 6);
-  document.getElementById("taxRateRoads").innerHTML = 
-    accounting.toFixed(taxRateRoads, 6);
-  
+  // Refresh drop-down choices
+  // Reset tax rate with debt based on base rate
+  var listTaxRates = document.getElementById("taxRateList");  
+  var taxRateChosen = parseFloat(listTaxRates.options[listTaxRates.selectedIndex].value);
+  var taxRateCity = taxRateChosen ;
+  if (taxRateCity == 0.265921) {
+    taxRateCityWithIS = 0.399553;
+  } else {
+    taxRateCityWithIS = 0.4221140;
+  }
 
   // Calculate tax estimates using avgHomeValue
   var homeMultiplier = accounting.unformat(
@@ -118,13 +108,34 @@ taxRateCity = taxRateChosen
   var monthlyIndividualCityTax = individualCityTax / 12;
   var amountSaved = (homeMultiplier * 0.065039) / 100;
 
+  // Variables and taxData array to draw chart of overall property taxes
+  // 2024-09-11 CSW - Updated city tax to include debt service
+  var monthlyTaxCity = (homeTaxNumber * taxRateCityWithIS) / 12;
+  var yearlyTaxCity = (homeTaxNumber * taxRateCityWithIS); 
+  var monthlyTaxCounty = (homeTaxNumber * taxRateCounty) / 12;
+  var monthlyTaxSchools = (homeTaxNumber * taxRateSchools) / 12;
+  var monthlyTaxHigherEd = (homeTaxNumber * taxRateHigherEd) / 12;
+  var monthlyTaxESD = (homeTaxNumber * taxRateESD) / 12;
+  var monthlyTaxRoads = (homeTaxNumber * taxRateRoads) / 12;
+  var monthlyTaxWCID = (homeTaxNumber * taxRateWCID) / 12;
+
+
   // WRITE TAX INFO TO PAGE
+  // "Based on a tax rate of... "
   document.getElementById("taxRateDisp").innerHTML = 
     accounting.toFixed(taxRateChosen, 6);
+  document.getElementById("taxRateWithISDisp").innerHTML =
+    accounting.toFixed(taxRateCityWithIS, 6);
   document.getElementById("monthlyRateInfo").innerHTML = 
     accounting.formatMoney(monthlyIndividualCityTax);
   document.getElementById("yearlyRateInfo").innerHTML =
     accounting.formatMoney(individualCityTax);
+
+  document.getElementById("monthlyRateInfoWithIS").innerHTML = 
+    accounting.formatMoney(monthlyTaxCity);
+  document.getElementById("yearlyRateInfoWithIS").innerHTML =
+    accounting.formatMoney(yearlyTaxCity);  
+
   document.getElementById("yourHomeValue").innerHTML =
     accounting.formatMoney(homeMultiplier);
   document.getElementById("amountSaved").innerHTML =
@@ -132,91 +143,112 @@ taxRateCity = taxRateChosen
 
 // Eventually, an array with Description, ID, percentage, etc.
 // 2024-09-11 CSW - Updated values based on 2025 spreadsheet 
-  var portionPolice = monthlyIndividualCityTax * 0.2971 ;
-  var portionStreets = monthlyIndividualCityTax * 0.1447 ;
-  var portionParks = monthlyIndividualCityTax *  0.0637 ;
-  var portionDevServices = monthlyIndividualCityTax *  0.0611 ;
-  var portionFinance = monthlyIndividualCityTax *  0.0500 ;
-  var portionIT = monthlyIndividualCityTax *  0.0443 ;
-  var portionHR = monthlyIndividualCityTax *  0.0395 ;
-  var portionEng = monthlyIndividualCityTax *  0.0354 ;
+// 2024-09-30 CSW - Final 2025 FY percentages
+/* Arranged from highest to lowest expenditures
+  Department/Service	Sum of Percentage
+  Police	                0.308291 +++
+  Streets & Drainage	    0.128075 +++
+  Development Services	  0.062592 +++
+  Parks and Recreation	  0.057959 +++
+  Finance	                0.049096 +++
+  Information Technology	0.045487 +++
+  Strategic Operations  	0.035346 +++
+  Engineering	            0.035287 +++
+  Human Resources	        0.033668 +++
+  City Manager's Office	  0.033464 +++
+  Legal                 	0.025045 ++
+  Construction Inspection	0.023804 ++
+  Library	                0.020057 ++
+  Facility Maintenance  	0.020041 ++
+  Economic Development	  0.019090 ++
+  Transfers Out	          0.019080 ++
+  City Council	          0.019027 ++
+  Non-Departmental	      0.017222 ++
+  Municipal Court	        0.016157 ++
+  Emergency Management	  0.010822 ++
+  Fleet Maintenance	      0.010500 ++
+  Community & Culture Development	0.009892 ++
+*/
+  var portionPolice = monthlyIndividualCityTax * 0.308291 ;
+  var portionStreets = monthlyIndividualCityTax * 0.128075 ;
+  var portionDevServices = monthlyIndividualCityTax * 0.062592 ;
+  var portionParks = monthlyIndividualCityTax * 0.057959 ;
+  var portionFinance = monthlyIndividualCityTax * 0.049096 ;
+  var portionIT = monthlyIndividualCityTax * 0.045487 ;
+  var portionStratOps = monthlyIndividualCityTax * 0.035346 ;
+  var portionEng = monthlyIndividualCityTax * 0.035287 ;
+  var portionHR = monthlyIndividualCityTax * 0.033668 ;
   // CMO = City Manager's Office
-  var portionCMO = monthlyIndividualCityTax *  0.0339 ;
-  var portionLegal = monthlyIndividualCityTax *  0.0244 ;
+  var portionCMO = monthlyIndividualCityTax * 0.033464 ;
+  var portionLegal = monthlyIndividualCityTax * 0.025045 ;
   // ConstInsp = Construction Inspection
-  var portionConstInsp = monthlyIndividualCityTax *  0.0234 ;
-  var portionEconDev = monthlyIndividualCityTax *  0.0211 ;  
-  // NonDept = Non-Departmental
-  var portionNonDept = monthlyIndividualCityTax *  0.0202 ;
-  var portionCityCouncil = monthlyIndividualCityTax *  0.0201 ;
-  var portionFacilities = monthlyIndividualCityTax *  0.0195 ;
-  var portionLibrary = monthlyIndividualCityTax *  0.0170 ;
-  var portionComms = monthlyIndividualCityTax *  0.0160 ;
-  var portionMuniCourt = monthlyIndividualCityTax *  0.0157 ;
-  var portionCitySec = monthlyIndividualCityTax *  0.0133 ;
-  // EMC = Emergency Management 
-  var portionEMC = monthlyIndividualCityTax *  0.0104 ;
-  var portionFleet = monthlyIndividualCityTax *  0.0102 ;
-  // Culture = Community & Culture Development
-  var portionCulture = monthlyIndividualCityTax *  0.0099 ;
-  var portionStratOps = monthlyIndividualCityTax *  0.0055 ;
+  var portionConstInsp = monthlyIndividualCityTax * 0.023804 ;
+  var portionLibrary = monthlyIndividualCityTax * 0.020057 ;
+  var portionFacilities = monthlyIndividualCityTax * 0.020041 ;
+  var portionEconDev = monthlyIndividualCityTax * 0.019090 ; 
   // XferOut = Transfers Out
-  var portionXferOut = monthlyIndividualCityTax *  0.0035 ;
+  var portionXferOut = monthlyIndividualCityTax * 0.019080 ;
+  var portionCityCouncil = monthlyIndividualCityTax * 0.019027 ;
+  // NonDept = Non-Departmental
+  var portionNonDept = monthlyIndividualCityTax * 0.017222 ;
+  var portionMuniCourt = monthlyIndividualCityTax * 0.016157 ;
+  // EMC = Emergency Management 
+  var portionEMC = monthlyIndividualCityTax * 0.010822 ;
+  var portionFleet = monthlyIndividualCityTax * 0.010500 ;
+  // Culture = Community & Culture Development
+  var portionCulture = monthlyIndividualCityTax * 0.009892 ;
   // All categories after the top 10 (verify)
-  var portionOther = monthlyIndividualCityTax * 0.2059 ;
+  var portionOther = monthlyIndividualCityTax * 0.000000 ;
 
-// Eventually, cycle through the array and write document 
+  // Populates table of expenditures by department 
+  // Eventually, cycle through the array and write document 
   document.getElementById("portionPolice").innerHTML =
     accounting.formatMoney(portionPolice);
   document.getElementById("portionStreets").innerHTML =
     accounting.formatMoney(portionStreets);
-  document.getElementById("portionParks").innerHTML =
-    accounting.formatMoney(portionParks);
   document.getElementById("portionDevServices").innerHTML =
     accounting.formatMoney(portionDevServices);
+  document.getElementById("portionParks").innerHTML =
+    accounting.formatMoney(portionParks);
   document.getElementById("portionFinance").innerHTML =
     accounting.formatMoney(portionFinance);
-  document.getElementById("portionHR").innerHTML =
-    accounting.formatMoney(portionHR);
   document.getElementById("portionIT").innerHTML =
     accounting.formatMoney(portionIT);
+  document.getElementById("portionStratOps").innerHTML =
+    accounting.formatMoney(portionStratOps);
   document.getElementById("portionEng").innerHTML =
     accounting.formatMoney(portionEng);
+  document.getElementById("portionHR").innerHTML =
+    accounting.formatMoney(portionHR);
   document.getElementById("portionCMO").innerHTML =
     accounting.formatMoney(portionCMO);
-  document.getElementById("portionNonDept").innerHTML =
-    accounting.formatMoney(portionNonDept);
   document.getElementById("portionLegal").innerHTML =
     accounting.formatMoney(portionLegal);
   document.getElementById("portionConstInsp").innerHTML =
-    accounting.formatMoney(portionConstInsp);
-  document.getElementById("portionEconDev").innerHTML =
-    accounting.formatMoney(portionEconDev);
-  document.getElementById("portionCityCouncil").innerHTML =
-    accounting.formatMoney(portionCityCouncil);
-  document.getElementById("portionFacilities").innerHTML =
-    accounting.formatMoney(portionFacilities);
+    accounting.formatMoney(portionConstInsp);  
   document.getElementById("portionLibrary").innerHTML =
     accounting.formatMoney(portionLibrary);
-  document.getElementById("portionComms").innerHTML =
-    accounting.formatMoney(portionComms);
+  document.getElementById("portionFacilities").innerHTML =
+    accounting.formatMoney(portionFacilities);
+  document.getElementById("portionEconDev").innerHTML =
+    accounting.formatMoney(portionEconDev);
+  document.getElementById("portionXferOut").innerHTML =
+    accounting.formatMoney(portionXferOut);  
+  document.getElementById("portionCityCouncil").innerHTML =
+    accounting.formatMoney(portionCityCouncil);
+  document.getElementById("portionNonDept").innerHTML =
+    accounting.formatMoney(portionNonDept);
   document.getElementById("portionMuniCourt").innerHTML =
     accounting.formatMoney(portionMuniCourt);
-  document.getElementById("portionCitySec").innerHTML =
-    accounting.formatMoney(portionCitySec);
   document.getElementById("portionEMC").innerHTML =
     accounting.formatMoney(portionEMC);
   document.getElementById("portionFleet").innerHTML =
     accounting.formatMoney(portionFleet);
   document.getElementById("portionCulture").innerHTML =
     accounting.formatMoney(portionCulture);
-  document.getElementById("portionStratOps").innerHTML =
-    accounting.formatMoney(portionStratOps);
-  document.getElementById("portionXferOut").innerHTML =
-    accounting.formatMoney(portionXferOut);  
   
   // Data used for Department portion chart
-  //   Passed as an array to Google Charts 
+  // Passed as an array to Google Charts 
   data = google.visualization.arrayToDataTable([
     ["Department", "Monthly Cost", { role: "style" }, { role: "annotation" }],
     [
@@ -230,6 +262,12 @@ taxRateCity = taxRateChosen
       portionStreets,
       "fill-color:rgb(208,108,110);fill-opacity: 0.7",
       accounting.formatMoney(portionStreets),
+    ],
+    [
+      "Development Services",
+      portionDevServices,
+      "fill-color:rgb(140,202,141);fill-opacity: 0.7",
+      accounting.formatMoney(portionDevServices),
     ],    
     [
       "Parks and Rec",
@@ -237,12 +275,6 @@ taxRateCity = taxRateChosen
       "fill-color:rgb(40,120,187);fill-opacity: 0.7",
       accounting.formatMoney(portionParks),
     ],    
-    [
-      "Development Services",
-      portionDevServices,
-      "fill-color:rgb(140,202,141);fill-opacity: 0.7",
-      accounting.formatMoney(portionDevServices),
-    ],
     [
       "Finance Department",
       portionFinance,
@@ -256,10 +288,10 @@ taxRateCity = taxRateChosen
       accounting.formatMoney(portionIT),
     ],
     [
-      "Human Resources",
-      portionHR,
-      "fill-color:rgb(247,191,22);fill-opacity: 0.7",
-      accounting.formatMoney(portionHR),
+      "Strategic Operations",
+      portionStratOps,
+      "fill-color:rgb(160,133,175);fill-opacity: 0.7",
+      accounting.formatMoney(portionStratOps),
     ],
     [
       "Engineering",
@@ -267,7 +299,13 @@ taxRateCity = taxRateChosen
       "fill-color:rgb(48,74,90);fill-opacity: 0.7",
       accounting.formatMoney(portionEng),
     ],
-	[
+    [
+      "Human Resources",
+      portionHR,
+      "fill-color:rgb(247,191,22);fill-opacity: 0.7",
+      accounting.formatMoney(portionHR),
+    ],
+  	[
       "City Manager's Office",
       portionCMO,
       "fill-color:rgb(217,162,142);fill-opacity: 0.7",
@@ -278,19 +316,8 @@ taxRateCity = taxRateChosen
       portionLegal,
       "fill-color:rgb(160,133,175);fill-opacity: 0.7",
       accounting.formatMoney(portionLegal),
-    ],
-    
+    ]
   ]);
-
-  // Variables and taxData array to draw chart of overall property taxes
-  // 2024-09-11 CSW - Updated city tax to include debt service
-  var monthlyTaxCity = (homeTaxNumber * taxRateCityWithIS) / 12;
-  var monthlyTaxCounty = (homeTaxNumber * taxRateCounty) / 12;
-  var monthlyTaxSchools = (homeTaxNumber * taxRateSchools) / 12;
-  var monthlyTaxHigherEd = (homeTaxNumber * taxRateHigherEd) / 12;
-  var monthlyTaxESD = (homeTaxNumber * taxRateESD) / 12;
-  var monthlyTaxRoads = (homeTaxNumber * taxRateRoads) / 12;
-  var monthlyTaxWCID = (homeTaxNumber * taxRateWCID) / 12;
   
   taxData = google.visualization.arrayToDataTable([
     [
@@ -404,6 +431,24 @@ taxRateCity = taxRateChosen
   	document.getElementById("allTaxesPieChart")
   );
   chartCompPie.draw(taxData, optionsPie);
+
+  // Table, not chart, at BOTTOM of page (Tax Rates by Entity)
+  // Write property tax rates by tax entity to page
+  // Added formatting to fixed-length decimal places 
+  document.getElementById("taxRateCityWithIS").innerHTML = 
+    accounting.toFixed(taxRateCityWithIS, 6);
+  document.getElementById("taxRateCounty").innerHTML =
+	accounting.toFixed(taxRateCounty, 6);
+  document.getElementById("taxRateSchools").innerHTML = 
+    accounting.toFixed(taxRateSchools, 6);
+  document.getElementById("taxRateHigherEd").innerHTML = 
+    accounting.toFixed(taxRateHigherEd, 6);
+  document.getElementById("taxRateWCID").innerHTML = 
+    accounting.toFixed(taxRateWCID, 6);
+  document.getElementById("taxRateESD").innerHTML = 
+    accounting.toFixed(taxRateESD, 6);
+  document.getElementById("taxRateRoads").innerHTML = 
+    accounting.toFixed(taxRateRoads, 6);
 
 }
 
