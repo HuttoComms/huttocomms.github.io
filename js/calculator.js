@@ -18,12 +18,12 @@ google.charts.setOnLoadCallback(drawChart);
 var taxRateCity = 0.385928 ;
 // 2024-2025 rate with debt was -- var taxRateCityWithIS = 0.399553 ;
 var taxRateCityWithIS = 0.385928 ;
-var taxRateCounty = 0.3331160 ;
-var taxRateSchools = 1.2075000 ; 
-var taxRateHigherEd = 0.039130 ;
+var taxRateCounty = 0.413776 ;
+var taxRateSchools = 1.2052 ; 
+var taxRateHigherEd = 0.040871 ;
 var taxRateESD = 0.100000 ;
 var taxRateRoads = 0.044329 ;
-var taxRateWCID = 0.017000 ;
+var taxRateWCID = 0.0170 ;
 
 // Average home value for the city - UPDATE ANNUALLY
 var avgHomeValue = 345951;
