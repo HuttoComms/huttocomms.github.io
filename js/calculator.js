@@ -15,9 +15,9 @@ google.charts.setOnLoadCallback(drawChart);
 
 // Major entity tax rates, including county and ISD
 // 2024-09-11 Verified Data
-var taxRateCity = 0.399553 ;
-// 2023-2024 rate with debt was -- var taxRateCityWithIS = 0.4221140 ;
-var taxRateCityWithIS = 0.399553 ;
+var taxRateCity = 0.385928 ;
+// 2024-2025 rate with debt was -- var taxRateCityWithIS = 0.399553 ;
+var taxRateCityWithIS = 0.385928 ;
 var taxRateCounty = 0.3331160 ;
 var taxRateSchools = 1.2075000 ; 
 var taxRateHigherEd = 0.039130 ;
