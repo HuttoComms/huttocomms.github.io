@@ -93,9 +93,9 @@ function drawChart() {
   var taxRateChosen = parseFloat(listTaxRates.options[listTaxRates.selectedIndex].value);
   var taxRateCity = taxRateChosen ;
   if (taxRateCity == 0.265921) {
-    taxRateCityWithIS = 0.399553;
+    taxRateCityWithIS = 0.385928;
   } else {
-    taxRateCityWithIS = 0.4221140;
+    taxRateCityWithIS = 0.421602;
   }
 
   // Calculate tax estimates using avgHomeValue
@@ -169,34 +169,34 @@ function drawChart() {
   Fleet Maintenance	      0.010500 ++
   Community & Culture Development	0.009892 ++
 */
-  var portionPolice = monthlyIndividualCityTax * 0.308291 ;
-  var portionStreets = monthlyIndividualCityTax * 0.128075 ;
-  var portionDevServices = monthlyIndividualCityTax * 0.062592 ;
-  var portionParks = monthlyIndividualCityTax * 0.057959 ;
-  var portionFinance = monthlyIndividualCityTax * 0.049096 ;
-  var portionIT = monthlyIndividualCityTax * 0.045487 ;
-  var portionStratOps = monthlyIndividualCityTax * 0.035346 ;
-  var portionEng = monthlyIndividualCityTax * 0.035287 ;
-  var portionHR = monthlyIndividualCityTax * 0.033668 ;
+  var portionPolice = monthlyIndividualCityTax * 0.2971  ;
+  var portionStreets = monthlyIndividualCityTax *  0.1447 ;
+  var portionDevServices = monthlyIndividualCityTax *  0.0611 ;
+  var portionParks = monthlyIndividualCityTax *  0.0637 ;
+  var portionFinance = monthlyIndividualCityTax *  0.0500 ;
+  var portionIT = monthlyIndividualCityTax *  0.0443 ;
+  var portionStratOps = monthlyIndividualCityTax *  0.0055 ;
+  var portionEng = monthlyIndividualCityTax *  0.0354 ;
+  var portionHR = monthlyIndividualCityTax * 0.0395  ;
   // CMO = City Manager's Office
-  var portionCMO = monthlyIndividualCityTax * 0.033464 ;
-  var portionLegal = monthlyIndividualCityTax * 0.025045 ;
+  var portionCMO = monthlyIndividualCityTax *  0.0339 ;
+  var portionLegal = monthlyIndividualCityTax * 0.0244  ;
   // ConstInsp = Construction Inspection
-  var portionConstInsp = monthlyIndividualCityTax * 0.023804 ;
-  var portionLibrary = monthlyIndividualCityTax * 0.020057 ;
-  var portionFacilities = monthlyIndividualCityTax * 0.020041 ;
-  var portionEconDev = monthlyIndividualCityTax * 0.019090 ; 
+  var portionConstInsp = monthlyIndividualCityTax *  0.0234 ;
+  var portionLibrary = monthlyIndividualCityTax *  0.0170 ;
+  var portionFacilities = monthlyIndividualCityTax *  0.0195 ;
+  var portionEconDev = monthlyIndividualCityTax *  0.0211 ; 
   // XferOut = Transfers Out
-  var portionXferOut = monthlyIndividualCityTax * 0.019080 ;
-  var portionCityCouncil = monthlyIndividualCityTax * 0.019027 ;
+  var portionXferOut = monthlyIndividualCityTax *  0.0035 ;
+  var portionCityCouncil = monthlyIndividualCityTax *  0.0201 ;
   // NonDept = Non-Departmental
-  var portionNonDept = monthlyIndividualCityTax * 0.017222 ;
-  var portionMuniCourt = monthlyIndividualCityTax * 0.016157 ;
+  var portionNonDept = monthlyIndividualCityTax *  0.0202 ;
+  var portionMuniCourt = monthlyIndividualCityTax *  0.0157 ;
   // EMC = Emergency Management 
-  var portionEMC = monthlyIndividualCityTax * 0.010822 ;
-  var portionFleet = monthlyIndividualCityTax * 0.010500 ;
+  var portionEMC = monthlyIndividualCityTax *  0.0104 ;
+  var portionFleet = monthlyIndividualCityTax *  0.0102 ;
   // Culture = Community & Culture Development
-  var portionCulture = monthlyIndividualCityTax * 0.009892 ;
+  var portionCulture = monthlyIndividualCityTax *  0.0099 ;
   // All categories after the top 10 (verify)
   var portionOther = monthlyIndividualCityTax * 0.000000 ;
 
