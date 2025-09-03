@@ -26,7 +26,7 @@ var taxRateRoads = 0.044329 ;
 var taxRateWCID = 0.017000 ;
 
 // Average home value for the city - UPDATE ANNUALLY
-var avgHomeValue = 361281;
+var avgHomeValue = 345951;
 
 /*
 // 2024-09-05 Values (Saved for reference)
